@@ -228,6 +228,7 @@ public class AdminController {
             }
 
             int loginId = rs.getInt("login_id");
+            boolean originalVote = rs.getBoolean("vote_status");
 
             javafx.scene.control.TextField firstNameField = new javafx.scene.control.TextField(rs.getString("first_name"));
             javafx.scene.control.TextField lastNameField  = new javafx.scene.control.TextField(rs.getString("last_name"));
@@ -235,6 +236,10 @@ public class AdminController {
             javafx.scene.control.TextField ssnField       = new javafx.scene.control.TextField(rs.getString("ssn"));
             javafx.scene.control.CheckBox  voteStatusBox  = new javafx.scene.control.CheckBox("Has voted");
             voteStatusBox.setSelected(rs.getBoolean("vote_status"));
+
+            if (!originalVote) {
+                voteStatusBox.setDisable(true);
+            }
 
             javafx.scene.control.Dialog<javafx.scene.control.ButtonType> dialog = new javafx.scene.control.Dialog<>();
             dialog.setTitle("Edit Voter");
@@ -254,22 +259,45 @@ public class AdminController {
 
             java.util.Optional<javafx.scene.control.ButtonType> result = dialog.showAndWait();
             if (result.isPresent() && result.get() == saveButton) {
-                String updateLogin = "UPDATE login SET first_name = ?, last_name = ?, l_username = ? WHERE login_id = ?";
-                java.sql.PreparedStatement ps1 = conn.prepareStatement(updateLogin);
-                ps1.setString(1, firstNameField.getText());
-                ps1.setString(2, lastNameField.getText());
-                ps1.setString(3, usernameField.getText());
-                ps1.setInt(4, loginId);
-                ps1.executeUpdate();
+                boolean initialCommit = conn.getAutoCommit();
+                conn.setAutoCommit(false);
 
-                String updateVoter = "UPDATE voter SET ssn = ?, vote_status = ? WHERE voter_id = ?";
-                java.sql.PreparedStatement ps2 = conn.prepareStatement(updateVoter);
-                ps2.setString(1, ssnField.getText());
-                ps2.setBoolean(2, voteStatusBox.isSelected());
-                ps2.setInt(3, voterId);
-                ps2.executeUpdate();
+                try {
+                    String updateLogin = "UPDATE login SET first_name = ?, last_name = ?, l_username = ? WHERE login_id = ?";
+                    java.sql.PreparedStatement ps1 = conn.prepareStatement(updateLogin);
+                    ps1.setString(1, firstNameField.getText());
+                    ps1.setString(2, lastNameField.getText());
+                    ps1.setString(3, usernameField.getText());
+                    ps1.setInt(4, loginId);
+                    ps1.executeUpdate();
 
-                adminOutput.setText("Voter updated successfully.\n\n");
+                    boolean newVoteStatus = voteStatusBox.isSelected();
+
+                    if (originalVote && !newVoteStatus) {
+                        String deleteVotes = "DELETE FROM votes WHERE voter_id = ?";
+                        java.sql.PreparedStatement deletePS = conn.prepareStatement(deleteVotes);
+                        deletePS.setInt(1, voterId);
+                        deletePS.executeUpdate();
+                    }
+
+                    String updateVoter = "UPDATE voter SET ssn = ?, vote_status = ? WHERE voter_id = ?";
+                    java.sql.PreparedStatement ps2 = conn.prepareStatement(updateVoter);
+                    ps2.setString(1, ssnField.getText());
+                    ps2.setBoolean(2, newVoteStatus);
+                    ps2.setInt(3, voterId);
+                    ps2.executeUpdate();
+
+                    conn.commit();
+                    adminOutput.setText("Voter updated successfully.\n\n");
+
+                } catch (Exception adminEX) {
+                    conn.rollback();
+                    throw adminEX;
+
+                } finally {
+                    conn.setAutoCommit(initialCommit);
+                }
+
                 viewVoters(event);
             }
 
