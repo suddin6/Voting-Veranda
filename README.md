@@ -4,82 +4,82 @@
 
 ## Team Members and Roles
 ### Suhani Sinha
-**Sprint 1**:
-Non-Functional Requirements
-Technologies & Tools
-Project Model
-**Sprint 2**:
-Fully Dressed Form for Manage Voters & Candidates use case
-Fully Dressed Form for Audit Votes use case
-**Sprint 3**:
-Design Sequence Diagram for Manage Voters & Candidates use case
-Design Sequence Diagram for Audit Votes use case
-**Sprint 7**:
-AdminController and admin-view.fxml
-**Sprint 9**:
-Reviewing Feedback
+- **Sprint 1**:
+  - Non-Functional Requirements
+  - Technologies & Tools
+  - Project Model
+- **Sprint 2**:
+  - Fully Dressed Form for Manage Voters & Candidates use case
+  - Fully Dressed Form for Audit Votes use case
+- **Sprint 3**:
+  - Design Sequence Diagram for Manage Voters & Candidates use case
+  - Design Sequence Diagram for Audit Votes use case
+- **Sprint 7**:
+  - AdminController and admin-view.fxml
+- **Sprint 9**:
+  - Reviewing Feedback
 
 ### Athraa Toma
-**Sprint 1**:
-Problem Statement
-Non-Functional Requirements
-Target Environment
-Technologies and Tools
-Project Model
-References
-**Sprint 2**:
-Fully Dressed Form for Login use case
-Fully Dressed Form for Manage User Profile use case
-**Sprint 3**:
-Design Sequence Diagram for Login use case
-Design Sequence Diagram for Manage User Profile use case
-**Sprint 4**:
-LoginController and login-view.fxml
-**Sprint 9**:
-Reviewing Feedback
+- **Sprint 1**:
+  - Problem Statement
+  - Non-Functional Requirements
+  - Target Environment
+  - Technologies and Tools
+  - Project Model
+  - References
+- **Sprint 2**:
+  - Fully Dressed Form for Login use case
+  - Fully Dressed Form for Manage User Profile use case
+- **Sprint 3**:
+  - Design Sequence Diagram for Login use case
+  - Design Sequence Diagram for Manage User Profile use case
+- **Sprint 4**:
+  - LoginController and login-view.fxml
+- **Sprint 9**:
+  - Reviewing Feedback
 
 ### Sumaya Uddin
-**Sprint 1**:
-Project Description
-Objectives
-Functional Requirements
-Target Environment
-Technologies and Tools + Making Database
-Project Model + Agile Project Plan Sheets
-Project Schedule & Estimation Effort + Context Diagram
-Risk Analysis
-References
-**Sprint 2**:
-Use Case Diagram
-Fully Dressed Form for Manage Campaign Profile use case
-Domain Class Diagram
-**Sprint 3**:
-Design Sequence Diagram for Manage Campaign Profile use case
-Design Class Diagram
-EER Diagram from Database
-**Sprint 6**:
-DatabaseAPI
-CandidateController and candidate-view.fxml
-VoterController and voter-view.fxml
-**Sprint 8**:
-LoginControllerTest
-AdminControllerTest
-**Sprint 9**:
-Reviewing Feedback
-Presentation Slides
-Final Report
+- **Sprint 1**:
+  - Project Description
+  - Objectives
+  - Functional Requirements
+  - Target Environment
+  - Technologies and Tools + Making Database
+  - Project Model + Agile Project Plan Sheets
+  - Project Schedule & Estimation Effort + Context Diagram
+  - Risk Analysis
+  - References
+- **Sprint 2**:
+  - Use Case Diagram
+  - Fully Dressed Form for Manage Campaign Profile use case
+  - Domain Class Diagram
+- **Sprint 3**:
+  - Design Sequence Diagram for Manage Campaign Profile use case
+  - Design Class Diagram
+  - EER Diagram from Database
+- **Sprint 6**:
+  - DatabaseAPI
+  - CandidateController and candidate-view.fxml
+  - VoterController and voter-view.fxml
+- **Sprint 8**:
+  - LoginControllerTest
+  - AdminControllerTest
+- **Sprint 9**:
+  - Reviewing Feedback
+  - Presentation Slides
+  - Final Report
 
 ### John Sopoci
-**Sprint 2**:
-Fully Dressed Form for Cast Vote use case
-Fully Dressed Form for View Election Standings use case
-**Sprint 3**:
-Design Sequence Diagram for Cast Vote use case
-Design Sequence Diagram for View Election Standings use case
-**Sprint 5**:
-VoterController and voter-view.fxml
-**Sprint 9**:
-Reviewing Feedback
+- **Sprint 2**:
+  - Fully Dressed Form for Cast Vote use case
+  - Fully Dressed Form for View Election Standings use case
+- **Sprint 3**:
+  - Design Sequence Diagram for Cast Vote use case
+  - Design Sequence Diagram for View Election Standings use case
+- **Sprint 5**:
+  - VoterController and voter-view.fxml
+- **Sprint 9**:
+  - Reviewing Feedback
 
 ## Functional Requirements
 - Provide a list of options the user can vote for.
