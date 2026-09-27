@@ -1,6 +1,6 @@
 # Voting Veranda
 
-## Voting Veranda is an online voting system that can be used for a variety of purposes, such as tracking the number of voters as well as presenting information in a straightforward and comprehensible way. This application allows voters to perform their civic duties from the comfort of their home, candidates to easily keep track of their performance, and administrators to find any discrepancies and declare the victor.
+### Voting Veranda is an online voting system that can be used for a variety of purposes, such as tracking the number of voters as well as presenting information in a straightforward and comprehensible way. This application allows voters to perform their civic duties from the comfort of their home, candidates to easily keep track of their performance, and administrators to find any discrepancies and declare the victor.
 
 ## Team Members and Roles
 ### Suhani Sinha
